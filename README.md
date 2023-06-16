@@ -17,19 +17,6 @@ This PyTorch implementation produces results comparable to or better than our or
 You may find useful information in [training/test tips](docs/tips.md) and [frequently asked questions](docs/qa.md). To implement custom models and datasets, check out our [templates](#custom-model-and-dataset). To help users better understand and adapt our codebase, we provide an [overview](docs/overview.md) of the code structure of this repository.
 
 **CycleGAN: [Project](https://junyanz.github.io/CycleGAN/) |  [Paper](https://arxiv.org/pdf/1703.10593.pdf) |  [Torch](https://github.com/junyanz/CycleGAN) |
-[Tensorflow Core Tutorial](https://www.tensorflow.org/tutorials/generative/cyclegan) | [PyTorch Colab](https://colab.research.google.com/github/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/CycleGAN.ipynb)**
-
-<img src="https://junyanz.github.io/CycleGAN/images/teaser_high_res.jpg" width="800"/>
-
-
-If you use this code for your research, please cite:
-
-Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks.<br>
-[Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/)\*,  [Taesung Park](https://taesung.me/)\*, [Phillip Isola](https://people.eecs.berkeley.edu/~isola/), [Alexei A. Efros](https://people.eecs.berkeley.edu/~efros). In ICCV 2017. (* equal contributions) [[Bibtex]](https://junyanz.github.io/CycleGAN/CycleGAN.txt)
-
-
-Image-to-Image Translation with Conditional Adversarial Networks.<br>
-[Phillip Isola](https://people.eecs.berkeley.edu/~isola), [Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/), [Tinghui Zhou](https://people.eecs.berkeley.edu/~tinghuiz), [Alexei A. Efros](https://people.eecs.berkeley.edu/~efros). In CVPR 2017. [[Bibtex]](https://www.cs.cmu.edu/~junyanz/projects/pix2pix/pix2pix.bib)
 
 
 ## Colab Notebook
@@ -76,7 +63,7 @@ cd ukiyoe-generator
   - For Docker users, we provide the pre-built Docker image and Dockerfile. Please refer to our [Docker](docs/docker.md) page.
   - For Repl users, please click [![Run on Repl.it](https://repl.it/badge/github/junyanz/pytorch-CycleGAN-and-pix2pix)](https://repl.it/github/junyanz/pytorch-CycleGAN-and-pix2pix).
 
-### CycleGAN train/test
+### ukiyoe-generator train/test
 - Download a CycleGAN dataset (e.g. maps):
 ```bash
 bash ./datasets/download_cyclegan_dataset.sh maps
@@ -86,13 +73,13 @@ bash ./datasets/download_cyclegan_dataset.sh maps
 - Train a model:
 ```bash
 #!./scripts/train_cyclegan.sh
-python train.py --dataroot ./datasets/maps --name maps_cyclegan --model cycle_gan
+python train.py --dataroot ../input/datasets/ukiyoe2photo --name ukiyoe2photo_cyclegan --model cycle_gan
 ```
 To see more intermediate results, check out `./checkpoints/maps_cyclegan/web/index.html`.
 - Test the model:
 ```bash
 #!./scripts/test_cyclegan.sh
-python test.py --dataroot ./datasets/maps --name maps_cyclegan --model cycle_gan
+python test.py --dataroot ../input/datasets/ukiyoe2photo --name ukiyoe2photo_cyclegan --model cycle_gan
 ```
 - The test results will be saved to a html file here: `./results/maps_cyclegan/latest_test/index.html`.
 
@@ -156,19 +143,3 @@ If you use this code for your research, please cite our papers.
   year={2017}
 }
 ```
-
-## Other Languages
-[Spanish](docs/README_es.md)
-
-## Related Projects
-**[contrastive-unpaired-translation](https://github.com/taesungp/contrastive-unpaired-translation) (CUT)**<br>
-**[CycleGAN-Torch](https://github.com/junyanz/CycleGAN) |
-[pix2pix-Torch](https://github.com/phillipi/pix2pix) | [pix2pixHD](https://github.com/NVIDIA/pix2pixHD)|
-[BicycleGAN](https://github.com/junyanz/BicycleGAN) | [vid2vid](https://tcwang0509.github.io/vid2vid/) | [SPADE/GauGAN](https://github.com/NVlabs/SPADE)**<br>
-**[iGAN](https://github.com/junyanz/iGAN) | [GAN Dissection](https://github.com/CSAILVision/GANDissect) | [GAN Paint](http://ganpaint.io/)**
-
-## Cat Paper Collection
-If you love cats, and love reading cool graphics, vision, and learning papers, please check out the Cat Paper [Collection](https://github.com/junyanz/CatPapers).
-
-## Acknowledgments
-Our code is inspired by [pytorch-DCGAN](https://github.com/pytorch/examples/tree/master/dcgan).
